@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link stylesheet, bootstrap, fontawesome e font-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Warhammer Carousel</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="item">
+                <!-- Effetto del mouse all'hover e leave -->
+                <div class="image" @mouseover="stopAutoplay" @mouseleave="Autoplay">
+                    <img v-bind:src="slides[activeImage].image" v-bind:alt="slides[activeImage].title">
+                </div>
+                <!-- Titoli e Descrizione -->
+                <div class="text">
+                    <h2>{{slides[activeImage].title}} </h2>
+                    <p>{{slides[activeImage].text}}</p>
+                </div>
+            </div>
+            <!-- Creo le thumbnails con funzione di click e un relativo controllo per la classe active -->
+            <div class="thumbnails" >
+                <div class="prev" @click="prev"><i class="fa-solid fa-caret-up"></i></div>
+                <div class="next" @click="next"><i class="fa-solid fa-caret-down"></i></div>
+                <div class="thumb" v-for="(thumb, index) in slides" :class="(activeImage === index) ? 'active' : '' ">
+                    <img v-bind:src="thumb.image" v-bind:alt="thumb.title" @click="changeImage(index)"/>
+                </div>
+            </div>
+        </div>
+        <!-- Bottoni -->
+        <div class="buttons">
+            <button class="btn-play" @click="Autoplay"><i class="fas fa-play"></i></button>
+            <button class="btn-pause" @click="stopAutoplay"><i class="fas fa-pause"></i></button>
+        </div>
+    </div>
+    <!--link jscript e vuejs-->
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto';font-size: 22px;
+    background: linear-gradient(-45deg, rgb(212, 0, 255), rgb(0, 36, 241), rgb(8, 122, 253));
+    background-size: 400% 400%;
+    width: 100vw;
+    height: 100vh;
+    animation: animate 15s ease infinite;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15rem;
+}
+
+.image{
+    height:100%;
+}
+
+.item{
+    float: left;
+    width: 700px;
+    height: 400px;
+    position: relative;
+}
+
+.item img,
+.thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .text{
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    color: rgb(10, 4, 41);
+    background-color: rgba(174, 174, 174, 0.509);
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.item .text p,
+.item .text h2{
+    font-weight: 600;
+}
+
+.thumbnails{
+    float: left;
+    height: 400px;
+    width: 180px;
+    position: relative;
+}
+
+.thumb{
+    height: calc((400px) / 5);
+    opacity: 0.5;
+}
+
+.thumb img{
+    cursor: pointer;
+}
+
+.thumb.active{
+    outline: 2px solid #fff;
+    opacity: 1;
+}
+
+.prev, 
+.next{
+    padding: 3px 5px;
+    margin: 5px 0;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.next {
+    bottom: 0;
+}
+
+.prev:hover, 
+.next:hover{
+    background-color: rgba(174, 174, 174, 1);   
+}
+
+.buttons{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.btn-play{
+    background-color: aqua;
+    padding: 10px 30px;
+    border-radius: 25px;
+}
+
+.btn-pause{
+    background-color: orange;
+    padding: 10px 30px;
+    border-radius: 25px;
+}
+
+.btn-play:hover{
+    background-color: navy;
+    border: 2px solid rebeccapurple;
+}
+
+.btn-pause:hover{
+    background-color: orangered;
+    border: 2px solid rebeccapurple;
+}
+@keyframes animate{ 
+    0% {
+        background-position:0% 50%;
+    }
+    50% {
+        background-position:100% 50%;
+    }
+    100% {
+        background-position:0% 50%;
+    }
+}
